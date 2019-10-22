@@ -10,6 +10,11 @@ angular.
         var self = this;
         self.phone = Phone.get({phoneId: $routeParams.phoneId}, function(phone) {
           self.setImage(phone.images[0]);
+        },
+        function(responseError){
+          console.warn ('No encontrado movil' + $routeParams.phoneId);
+          self.phone.name = "No encontrado";
+          self.mensaje ="404 - Movil no encontrado";
         });
 
         self.setImage = function setImage(imageUrl) {
