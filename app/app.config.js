@@ -14,6 +14,12 @@ angular.
         when('/comparador', {
           template: '<phone-comparador></phone-comparador>'
         }).
+        when('/cesta', {
+          template: '<phone-cesta></phone-cesta>'
+        }).
+        when('/404',{
+          templateUrl:'error/404.html'
+        }).
         otherwise('/phones');
     }
   ]);

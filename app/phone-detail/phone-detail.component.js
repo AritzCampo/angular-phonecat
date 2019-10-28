@@ -5,17 +5,20 @@ angular.
   module('phoneDetail').
   component('phoneDetail', {
     templateUrl: 'phone-detail/phone-detail.template.html',
-    controller: ['$routeParams', 'Phone',
-      function PhoneDetailController($routeParams, Phone) {
+    controller: ['$routeParams', 'Phone', '$location',
+      function PhoneDetailController($routeParams, Phone,$location) {
         var self = this;
-        self.phone = Phone.get({phoneId: $routeParams.phoneId}, function(phone) {
+        self.phone = Phone.get({phoneId: $routeParams.phoneId},
+           function(phone) {
           self.setImage(phone.images[0]);
-        },
-        function(responseError){
-          console.warn ('No encontrado movil' + $routeParams.phoneId);
-          self.phone.name = "No encontrado";
-          self.mensaje ="404 - Movil no encontrado";
+          },
+          function(responseError){
+           // alert (error);
+           console.warn ("No encontrado movil" + $routeParams.phoneId);
+           self.mensaje="404 - Movil no encontrado";
+           $location.url('/404');
         });
+
 
         self.setImage = function setImage(imageUrl) {
           self.mainImageUrl = imageUrl;

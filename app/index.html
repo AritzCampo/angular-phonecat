@@ -19,21 +19,25 @@
     <script src="core/checkmark/checkmark.filter.js"></script>
     <script src="core/phone/phone.module.js"></script>
     <script src="core/phone/phone.service.js"></script>
+    <script src="core/comprar/comprar.service.js"></script>
     <script src="phone-list/phone-list.module.js"></script>
     <script src="phone-list/phone-list.component.js"></script>
     <script src="phone-detail/phone-detail.module.js"></script>
     <script src="phone-detail/phone-detail.component.js"></script>
+    <script src="menu/menu.module.js"></script>
+    <script src="menu/menu.component.js"></script>
     <script src="phone-comparador/phone-comparador.module.js"></script>
     <script src="phone-comparador/phone-comparador.component.js"></script>
+    <script src="phone-comparador-detail/phone-comparador-detail.module.js"></script>
+    <script src="phone-comparador-detail/phone-comparador-detail.component.js"></script>
+    <script src="phone-cesta/phone-cesta.module.js"></script>
+    <script src="phone-cesta/phone-cesta.component.js"></script>
   </head>
   <body>
-    <nav>
-      <a ng-href="#!/phones">Inicio</a> 
-      <a ng-href="#!/comparador">Comparador</a> 
-    
-    </nav>
-
-    <div class="view-container">
+ 
+    <menu></menu>
+<br/>
+    <div class="view-container ">
       <div ng-view class="view-frame"></div>
     </div>
 

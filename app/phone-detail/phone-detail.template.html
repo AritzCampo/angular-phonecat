@@ -1,12 +1,10 @@
-
-
 <div class="phone-images">
   <img ng-src="{{img}}" class="phone"
       ng-class="{selected: img === $ctrl.mainImageUrl}"
       ng-repeat="img in $ctrl.phone.images" />
 </div>
 
-<h1>{{$ctrl.phone.name}}</h1>
+<h1>{{(($ctrl.phone.name)?$ctrl.phone.name:$ctrl.mensaje)}}</h1>
 
 <p>{{$ctrl.phone.description}}</p>
 

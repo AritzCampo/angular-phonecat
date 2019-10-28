@@ -5,10 +5,33 @@ angular.
   module('phoneComparador').
   component('phoneComparador', {
     templateUrl: 'phone-comparador/phone-comparador.template.html',
-    controller: ['Phone',
-      function PhoneComparadorController(Phone) {
-        this.phones = Phone.query();
-        this.orderProp = 'age';
+    controller: ['Phone','$scope','compraMovil',
+      function PhoneComparadorController(Phone,$scope,compraMovil) {
+        var self = this;
+        console.trace('PhoneCompradadorController');
+        self.phones = Phone.query();
+        self.phone1 = {};
+        self.phone2 = {};
+        self.selec=0;
+        self.orderProp = 'age';
+        
+     
+        
+        self.seleccionar = function(phone){
+          self.phone2 = self.phone1;
+          self.phone1 = phone;
+        }
+         
+
+        $scope.$on("eventoComprar",function(event,data){
+          alert('eventoComprar en padre' + data.telefono.id);
+        });
+        
+        self.comprarMovil = function(){
+          return compraMovil.getProducto();
+        };
+        
+      
       }
-    ]
+   ]
   });
